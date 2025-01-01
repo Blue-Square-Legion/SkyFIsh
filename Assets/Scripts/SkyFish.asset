@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 166e2663ddfd6ae4db41ce65e4c806ef, type: 3}
-  m_Name: Card
+  m_Name: SkyFish
   m_EditorClassIdentifier: 
-  _myRank: 0
-  _mySuite: 0
+  _myRank: 13
+  _mySuite: 2
   _cardFace: {fileID: 0}
-  _cardBack: {fileID: 0}
+  _cardBack: {fileID: 21300000, guid: b27344ab89a722e4bb0b0358010dc990, type: 3}
   cardFaces:
   - {fileID: 21300000, guid: bdd37801dadf95740b19a6f72b1cb147, type: 3}
   - {fileID: 21300000, guid: a927919f45cce2f45ba8213f54f59a27, type: 3}

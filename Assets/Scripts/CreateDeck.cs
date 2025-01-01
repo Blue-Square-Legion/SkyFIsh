@@ -5,12 +5,13 @@ using UnityEngine.Pool;
 
 public class CreateDeck : MonoBehaviour
 {
-    public static ObjectPool<Card> CardDeck;
+    //public static ObjectPool<Card> CardDeck;
     public List<Card> Cards;
-
+    public GameObject Card;
     private void Awake()
     {
-        CardDeck = new ObjectPool<Card>(CreateStandardDeck, DrawCard, ReturnCardToDeck, DestroyCard, true, 1, 52);
+        //CardDeck = new ObjectPool<Card>(CreateStandardDeck, DrawCard, ReturnCardToDeck, DestroyCard, true, 1, 52);
+        //CreateStandardDeck();
     }
 
     // Start is called before the first frame update
@@ -30,30 +31,32 @@ public class CreateDeck : MonoBehaviour
         Debug.Log("Generating Deck");
         for (int i = 1; i < 53; i++)
         {
-            Card newCard = new();
+            GameObject newCard = Instantiate(Card, transform.position, Quaternion.identity);
+            Card newCardInfo = newCard.GetComponent<Card>();
+            newCard.transform.parent = transform;
             if (i < 14)
             {
-                newCard.CreateCard(i, CardSO.Suite.Spade);
+                newCardInfo.CreateCard(i, CardSO.Suite.Spade);
             }
             else if (i < 27)
             {
-                newCard.CreateCard(i - 13, CardSO.Suite.Club);
+                newCardInfo.CreateCard(i - 13, CardSO.Suite.Club);
             }
             else if (i < 40)
             {
-                newCard.CreateCard(i - 26, CardSO.Suite.Diamond);
+                newCardInfo.CreateCard(i - 26, CardSO.Suite.Diamond);
             }
             else
             {
-                newCard.CreateCard(i - 39, CardSO.Suite.Heart);
+                newCardInfo.CreateCard(i - 39, CardSO.Suite.Heart);
             }
-            Cards.Add(newCard);
-            CardDeck.Release(newCard);
+            Cards.Add(newCardInfo);
+            //CardDeck.Release(newCard);
         }
         return null;
     }
 
-    private void DrawCard(Card card) 
+    /*private void DrawCard(Card card) 
     {
         
     }
@@ -65,5 +68,5 @@ public class CreateDeck : MonoBehaviour
     private void DestroyCard(Card card) 
     {
 
-    }
+    }*/
 }

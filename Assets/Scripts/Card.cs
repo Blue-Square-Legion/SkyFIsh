@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField] private CardSO _cardDetails;
-    [SerializeField] private GameObject _cardFront, _cardBack;
+    [SerializeField] private Material _cardFrontMat, _cardBackMat;
+    [SerializeField] private MeshRenderer _renderer;
+
+    private void Awake()
+    {
+        _renderer = GetComponent<MeshRenderer>();
+    }
+
     public void CreateCard(int rank, CardSO.Suite suite) 
     {
         if (_cardDetails.Equals(null)) 
@@ -18,17 +24,9 @@ public class Card : MonoBehaviour
         _cardDetails.SetRank(rank);
         _cardDetails.SetSuite(suite);
         gameObject.name = $"{_cardDetails.GetSuite()}_{_cardDetails.GetRank()}";
-        _cardFront.GetComponent<SpriteRenderer>().sprite = _cardDetails.ApplyCardFace();
-        _cardBack.GetComponent<SpriteRenderer>().sprite = _cardDetails.ApplyCardBack();
-    }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _cardFrontMat = _cardDetails.ApplyCardFaceMat();
+        _cardBackMat = _cardDetails.ApplyCardBackMat();
+        _renderer.materials[0] = _cardFrontMat;
+        _renderer.materials[1] = _cardBackMat;
     }
 }

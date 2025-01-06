@@ -43,9 +43,9 @@ public class CardSO : ScriptableObject
 
     [SerializeField] private Rank _myRank;
     [SerializeField] private Suite _mySuite;
-    [SerializeField] private Sprite _cardFace;
-    [SerializeField] private Sprite _cardBack;
-    [SerializeField] List<Sprite> cardFaces = new ();
+    [SerializeField] private Material _cardFaceMat;
+    [SerializeField] private Material _cardBackMat;
+    [SerializeField] List<Material> cardFaceMaterials = new();
     public Rank GetRank() 
     {
         return _myRank;
@@ -79,26 +79,27 @@ public class CardSO : ScriptableObject
     private void SelectFace() 
     {
         string faceName = $"{_mySuite}_{_myRank}";
-        foreach (Sprite sprite in cardFaces) {
-            if (sprite.name.Equals(faceName))
+        foreach (Material cardMat in cardFaceMaterials) {
+            if (cardMat.name == faceName)
             {
-                _cardFace = sprite;
+                Debug.Log($"Match Found for {cardMat.name}");
+                _cardFaceMat = cardMat;
                 break;
             }
         }
-        if (_cardFace.Equals(null)) 
+        if (_cardFaceMat.Equals(null)) 
         {
-            Debug.LogWarning($"No image found for {_mySuite}_{_myRank}. It is either not in the list or not named correctly");
+            Debug.LogWarning($"No material found for {_mySuite}_{_myRank}. It is either not in the list or not named correctly");
         }
     }
 
-    public Sprite ApplyCardFace() 
+    public Material ApplyCardFaceMat()
     {
-        return _cardFace;
+        return _cardFaceMat;
     }
 
-    public Sprite ApplyCardBack()
+    public Material ApplyCardBackMat()
     {
-        return _cardBack;
+        return _cardBackMat;
     }
 }

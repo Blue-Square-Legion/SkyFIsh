@@ -57,29 +57,19 @@ public class CreateDeck : MonoBehaviour
         Card chosenCard, lastChosenCard = null;
         do
         {
-            if (tempList.Count > 0)
+            int tempNumber = Random.Range(0, tempList.Count - 1);
+            chosenCard = tempList[tempNumber];
+            Cards.Add(chosenCard);
+            tempList.Remove(chosenCard);
+            if (lastChosenCard == null)
             {
-                int tempNumber = Random.Range(0, tempList.Count - 1);
-                chosenCard = tempList[tempNumber];
-                Cards.Add(chosenCard);
-                tempList.Remove(chosenCard);
-                if (lastChosenCard == null)
-                {
-                    lastChosenCard = chosenCard;
-                    chosenCard.gameObject.transform.position = transform.position;
-                }
-                else
-                {
-                    chosenCard.gameObject.transform.position = lastChosenCard.gameObject.transform.position + new Vector3(0, 0, cardOffSet);
-                    lastChosenCard = chosenCard;
-                }
+                lastChosenCard = chosenCard;
+                chosenCard.gameObject.transform.position = transform.position;
             }
-            else if(tempList.Count == 0)
+            else
             {
-                chosenCard = tempList[0];
-                Cards.Add(chosenCard);
-                tempList.Remove(chosenCard);
                 chosenCard.gameObject.transform.position = lastChosenCard.gameObject.transform.position + new Vector3(0, 0, cardOffSet);
+                lastChosenCard = chosenCard;
             }
         }
         while(tempList.Count > 0);

@@ -1,21 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using TMPro.SpriteAssetUtilities;
 using UnityEngine;
 
 public class Card : MonoBehaviour
 {
     [SerializeField] private CardSO _cardDetails;
     [SerializeField] private Material _cardFrontMat, _cardBackMat;
-    [SerializeField] private MeshRenderer _renderer;
+    [SerializeField] private Renderer _renderer;
 
     private void Awake()
     {
-        _renderer = GetComponent<MeshRenderer>();
+        _renderer = GetComponent<Renderer>();
     }
 
-    public void CreateCard(int rank, CardSO.Suite suite) 
+    public void CreateCard(int rank, CardSO.Suite suite)
     {
-        if (_cardDetails.Equals(null)) 
+        if (_cardDetails.Equals(null))
         {
             Debug.Log("CardSO is Null, getting theme from Game Manager");
             _cardDetails = GameObject.Find("GameManager").GetComponent<GameManager>().GetTheme();
@@ -26,7 +29,10 @@ public class Card : MonoBehaviour
         gameObject.name = $"{_cardDetails.GetSuite()}_{_cardDetails.GetRank()}";
         _cardFrontMat = _cardDetails.ApplyCardFaceMat();
         _cardBackMat = _cardDetails.ApplyCardBackMat();
-        _renderer.materials[0] = _cardFrontMat;
-        _renderer.materials[1] = _cardBackMat;
+        Material[] _materialArray = new Material[2];
+        _materialArray[0] = _cardFrontMat;
+        _materialArray[1] = _cardBackMat;
+
+        _renderer.materials = _materialArray;
     }
 }

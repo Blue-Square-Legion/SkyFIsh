@@ -14,33 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myRank: 13
   _mySuite: 2
-  _cardFace: {fileID: 0}
-  _cardBack: {fileID: 21300000, guid: b27344ab89a722e4bb0b0358010dc990, type: 3}
-  _cardFaceMat: {fileID: 0}
+  _cardFaceMat: {fileID: 2100000, guid: 682ee97fcf0b98641a48d77bbabfc227, type: 2}
   _cardBackMat: {fileID: 2100000, guid: 2dd1380e78e8a0d45862a163ba210c77, type: 2}
-  cardFaces:
-  - {fileID: 21300000, guid: bdd37801dadf95740b19a6f72b1cb147, type: 3}
-  - {fileID: 21300000, guid: a927919f45cce2f45ba8213f54f59a27, type: 3}
-  - {fileID: 21300000, guid: da33a80dd2a08ef4a94b890839d5537a, type: 3}
-  - {fileID: 21300000, guid: 046dd0cc6e649784cbed1a42d26a4392, type: 3}
-  - {fileID: 21300000, guid: 2aa3cf61cd72b924693756bcb406dd6c, type: 3}
-  - {fileID: 21300000, guid: 98190b14997ba704cb6dbbbe45d6f79d, type: 3}
-  - {fileID: 21300000, guid: 092e436d5350c5c478b5c38070894918, type: 3}
-  - {fileID: 21300000, guid: 289f23f4b98a83f47ab27e2b8950c890, type: 3}
-  - {fileID: 21300000, guid: 171e13dbca6237c42b801b679cdc4f3f, type: 3}
-  - {fileID: 21300000, guid: 15d06dc456491654aa6643c103825757, type: 3}
-  - {fileID: 21300000, guid: 5a0de76ec171d374dbdea91b0f4761cb, type: 3}
-  - {fileID: 21300000, guid: ac407ceb269d56c4884f102e4c894620, type: 3}
-  - {fileID: 21300000, guid: d36f5a4c8f9093a4b91436d626287476, type: 3}
-  - {fileID: 21300000, guid: 19e2e3bcb19b78c47b7d3a175f1970f7, type: 3}
-  - {fileID: 21300000, guid: 0a23b63a38d00ef4998ed9c8f153a143, type: 3}
-  - {fileID: 21300000, guid: 6a6e98da4b49c62419e7c77ae94862e5, type: 3}
-  - {fileID: 21300000, guid: 516d3a6b140fc1842af3ce13bd9f92ac, type: 3}
-  - {fileID: 21300000, guid: 4714a6a83e4260941a19a5d5ffe5dd45, type: 3}
-  - {fileID: 21300000, guid: 1cba73b34dd8cee43987a53c87093148, type: 3}
-  - {fileID: 21300000, guid: 7466bfa4f6467234e81a1df4f5bce640, type: 3}
-  - {fileID: 21300000, guid: 5001b977fd53c3242b299f2f667dc5cb, type: 3}
-  - {fileID: 21300000, guid: 5426ea1eca1df92429a351939de4d4bd, type: 3}
   cardFaceMaterials:
   - {fileID: 2100000, guid: ed1a8232e2483224ebd3025e5beb47ba, type: 2}
   - {fileID: 2100000, guid: ac521b8c633ea48458e0389e69115f84, type: 2}

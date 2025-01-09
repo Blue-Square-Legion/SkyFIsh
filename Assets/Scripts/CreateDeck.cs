@@ -25,7 +25,8 @@ public class CreateDeck : MonoBehaviour
         Debug.Log("Generating Deck");
         for (int i = 1; i < 53; i++)
         {
-            GameObject newCard = Instantiate(Card, lastSpawnedCardPos + new Vector3(0, 0, cardOffSet), Quaternion.identity);
+            GameObject newCard = Instantiate(Card, lastSpawnedCardPos + new Vector3(0, cardOffSet, 0), Quaternion.identity);
+
             lastSpawnedCardPos = newCard.transform.position;
             Card newCardInfo = newCard.GetComponent<Card>();
             newCard.transform.parent = transform;
@@ -68,7 +69,7 @@ public class CreateDeck : MonoBehaviour
             }
             else
             {
-                chosenCard.gameObject.transform.position = lastChosenCard.gameObject.transform.position + new Vector3(0, 0, cardOffSet);
+                chosenCard.gameObject.transform.position = lastChosenCard.gameObject.transform.position + new Vector3(0, cardOffSet, 0);
                 lastChosenCard = chosenCard;
             }
         }
